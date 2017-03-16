@@ -7,5 +7,6 @@ I'm not that good of a programmer, this thing is probably broken in all kinds of
 
 If you want to help, send me a message or raise an issue.
 
-Thanks, and ## Be Awesome To Each Other!
-Andrew
+__Be Awesome To Each Other!__
+
+*Andrew*
