@@ -6,3 +6,5 @@
 - save state -- remember which episodes have been heard.
 - build gui with tkinter -- FUTURE
 - secure inputs -- check for valid feed, valid choices, not harmful inputs.
+- delete old episodes
+- show downloaded episodes
