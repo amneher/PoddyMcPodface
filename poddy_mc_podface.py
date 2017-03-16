@@ -2,27 +2,38 @@ import feedparser
 import sys, os
 import pickle
 
-
+feed_file = open('feeds.txt', 'a+')
 feeds = []
 
 # main
 def poddy():
+    load_feeds()
     while True:
         show_menu()
 
 # get feed info
 def show_feeds():
+    print('-' * 20)
     if feeds:
         for f in feeds:
             feed = feedparser.parse(f)
             print(feed.feed.title)
+    print('-' * 20)
 # refresh feeds
+
+# load feeds
+def load_feeds():
+    for line in feed_file:
+        feeds.append(line)
 
 # add feed
 def add():
     feed = str(input('Enter feed URL: '))
-    feeds.append(feed)
-    print(feeds)
+    if feed not in feeds:
+        feeds.append(feed)
+    if feed + ' \n' not in feed_file:
+        feed_file.write(feed + ' \n')
+    # print(feeds)
 
 # download episodes
 
@@ -30,6 +41,9 @@ def add():
 def show_new_episodes():
     for feed in feeds:
         f = feedparser.parse(feed)
+        print(' ')
+        print(f.feed.title)
+        print(' ')
         for i in range(0,10):
             print(f.entries[i].title)
 # delete old episodes
@@ -40,8 +54,10 @@ def show_new_episodes():
 
 # show menu
 def show_menu():
+    # os.system('clear')
+    print('=' * 20)
     print('Welcome to Poddy McPodface!')
-    print('---------------------------')
+    print('=' * 20)
     print('1. Add feed')
     print('2. Show feeds')
     print('3. Show new episodes')
@@ -57,6 +73,7 @@ def show_menu():
         show_new_episodes()
     elif choice.lower() == 'q':
         print("See Ya!")
+        feed_file.close()
         quit()
 
 
