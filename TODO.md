@@ -1,5 +1,7 @@
 # TODO for Poddy McPodface
 
+- get down with OOP. base Feed object, put all methods for interacting with a feed into class.
+    - need Feed, App, Playlist classes.
 - fix reading feeds in from the feed_file.
 - get download menu working
 - clear screen appropriately to clean up cli.
